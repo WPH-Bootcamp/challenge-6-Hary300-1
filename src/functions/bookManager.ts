@@ -6,13 +6,11 @@
 // Fungsi ini tidak mengembalikan nilai (void)
 // Petunjuk: pikirkan bagaimana cara menambahkan buku ke array yang sudah disediakan
 
-
 // Fungsi listBooks
 // Fungsi ini digunakan untuk menampilkan semua buku yang tersimpan
 // Tidak memerlukan parameter
 // Fungsi ini tidak mengembalikan nilai (void)
 // Petunjuk: pikirkan cara menampilkan data buku dengan format yang mudah dibaca
-
 
 // Fungsi searchBook
 // Fungsi ini digunakan untuk mencari buku berdasarkan judul
@@ -21,3 +19,52 @@
 // Petunjuk: jika parameter title diberikan, cari buku yang cocok
 //           jika tidak diberikan, tampilkan semua buku atau berikan informasi yang sesuai
 
+import { BookList } from '../data/books';
+import { BookData } from '../types';
+
+export function addBook(bookData: BookData): void {
+  BookList.push(bookData);
+  console.log('');
+  console.log('MESSAGE: New Book Added');
+  console.log('');
+}
+
+export function showBookList(): void {
+  if (BookList.length === 0) {
+    console.log('');
+    console.log('MESSAGE: Book List is Empty');
+    console.log('');
+    return;
+  }
+  console.log(`Total: ${BookList.length} Book(s)`);
+  BookList.map((book, i) => {
+    console.log('|--------------------------|');
+    console.log(`|No. ${i + 1}`);
+    console.log(`|Title: ${book.title}`);
+    console.log(`|Author: ${book.author}`);
+    console.log(`|Publication year: ${book.publicationYear}`);
+    console.log('|--------------------------|');
+  });
+}
+
+export function searchBook(title?: string): void {
+  if (!title) {
+    showBookList();
+    return;
+  }
+  const selectedBook = BookList.find(
+    (book) => book.title.toLowerCase() === title.trim().toLowerCase()
+  );
+  if (!selectedBook) {
+    console.log('');
+    console.log('MESSAGE: Book not found');
+    console.log('');
+    return;
+  }
+
+  console.log('|--------------------------|');
+  console.log(`|Title: ${selectedBook.title}`);
+  console.log(`|Author: ${selectedBook.author}`);
+  console.log(`|Publication year: ${selectedBook.publicationYear}`);
+  console.log('|--------------------------|');
+}
