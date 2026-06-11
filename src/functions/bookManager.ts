@@ -34,14 +34,16 @@ export function addBook(
 
   BookList.push(newBook);
   console.log('');
-  console.log('MESSAGE: New Book Added');
+  console.log('MESSAGE:');
+  console.log(`New Book "${newBook.title}" Added`);
   console.log('');
 }
 
 export function showBookList(): void {
   if (BookList.length === 0) {
     console.log('');
-    console.log('MESSAGE: Book List is Empty');
+    console.log('MESSAGE: ');
+    console.log('Book List is Empty');
     console.log('');
     return;
   }
@@ -66,7 +68,8 @@ export function searchBook(title?: string): void {
   );
   if (!selectedBook) {
     console.log('');
-    console.log('MESSAGE: Book not found');
+    console.log('MESSAGE: ');
+    console.log('Book not found');
     console.log('');
     return;
   }
