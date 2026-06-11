@@ -8,24 +8,11 @@
 // Silakan bereksplorasi untuk memastikan semua fungsi berjalan dengan baik
 
 import { addBook, searchBook, showBookList } from './functions/bookManager';
-import { BookData } from './types';
 
 console.log('Book Management Application - Week 6');
 console.log('=====================================');
 
 // Mulai pengujian di bawah ini
-
-const book1: BookData = {
-  title: 'To Kill a Mockingbird',
-  author: 'Harper Lee',
-  publicationYear: 1960,
-};
-
-const book2: BookData = {
-  title: 'Pride and Prejudice',
-  author: 'Jane Austen',
-  publicationYear: 1813,
-};
 
 //show empty list
 console.log('SHOW EMPTY LIST');
@@ -34,8 +21,8 @@ console.log('');
 
 // add books
 console.log('ADD BOOKS');
-addBook(book1);
-addBook(book2);
+addBook('To Kill a Mockingbird', 'Harper Lee', 1960);
+addBook('Pride and Prejudice', 'Jane Austen', 1813);
 console.log('');
 
 // show list

@@ -20,10 +20,19 @@
 //           jika tidak diberikan, tampilkan semua buku atau berikan informasi yang sesuai
 
 import { BookList } from '../data/books';
-import { BookData } from '../types';
 
-export function addBook(bookData: BookData): void {
-  BookList.push(bookData);
+export function addBook(
+  title: string,
+  author: string,
+  publicationYear: number
+): void {
+  const newBook = {
+    title,
+    author,
+    publicationYear,
+  };
+
+  BookList.push(newBook);
   console.log('');
   console.log('MESSAGE: New Book Added');
   console.log('');
